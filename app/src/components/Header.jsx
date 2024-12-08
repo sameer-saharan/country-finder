@@ -1,11 +1,13 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import useTheme from '../context/theme'
 function Header() {
+    const {toggleThemeMode} = useTheme();
+
   return (
     <div className='flex items-center justify-center py-5 gap-x-5'>
         <div>
-            <label htmlFor="sort">Sort by: </label>
-            <select name="sort" id="sort" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold'>
+            <label htmlFor="sort" className='dark:text-white'>Sort by: </label>
+            <select name="sort" id="sort" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold '>
                 <option value="aisa">Asia</option>
                 <option value="europe">Europe</option>
                 <option value="america">America</option>
@@ -13,7 +15,7 @@ function Header() {
             </select>
         </div>
         <div>
-            <label htmlFor="filter">Filter by: </label>
+            <label htmlFor="filter" className='dark:text-white'>Filter by: </label>
             <select name="filter" id="filter" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold'>
                 <option value="ASC">Low Population</option>
                 <option value="DESC">High Population</option>
@@ -21,7 +23,8 @@ function Header() {
             </select>
         </div>
         <div>
-            <button className='bg-slate-600 p-2 rounded-xl text-white font-semibold'>Toggle Theme</button>
+            <button className='bg-slate-600 p-2 rounded-xl text-white font-semibold hover:bg-slate-700 dark:bg-slate-100 dark:hover:bg-slate-300 dark:text-black'
+            onClick={toggleThemeMode}>Toggle Theme</button>
         </div>
     </div>
   )
