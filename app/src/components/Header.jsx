@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import useTheme from '../context/theme'
 function Header() {
-    const {toggleThemeMode} = useTheme();
+    const {toggleThemeMode, handleSort, handleFilter} = useTheme();
 
   return (
     <div className='flex items-center justify-center py-5 gap-x-5'>
         <div>
             <label htmlFor="sort" className='dark:text-white'>Sort by: </label>
-            <select name="sort" id="sort" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold '>
+            <select onChange={(e) => handleSort(e.target.value)} name="sort" id="sort" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold ' >
                 <option value="aisa">Asia</option>
                 <option value="europe">Europe</option>
                 <option value="america">America</option>
@@ -16,7 +16,7 @@ function Header() {
         </div>
         <div>
             <label htmlFor="filter" className='dark:text-white'>Filter by: </label>
-            <select name="filter" id="filter" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold'>
+            <select onChange={(e) => handleFilter(e.target.value)} name="filter" id="filter" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold' >
                 <option value="ASC">Low Population</option>
                 <option value="DESC">High Population</option>
                 

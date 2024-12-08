@@ -15,10 +15,9 @@ function App() {
   }, [themeMode]);
 
   return (
-    <ThemeProvider value={{ themeMode, toggleThemeMode }}>
+    <ThemeProvider value={{ themeMode, toggleThemeMode}}>
       <div className="w-full max-w-screen-sm mx-auto px-10 responsive dark:bg-[#222222]">
         <h1 className="text-6xl font-bold text-center pb-10 dark:text-white">Country Finder</h1>
-        <Header />
         <Outlet />
       </div>
     </ThemeProvider>
