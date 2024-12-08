@@ -10,8 +10,10 @@ const getCountryInfo = (countryName) => {
             const response = await fetch(url);
             const data = await response.json();
 
+            const nativeNameKey = Object.entries(data[0].name.nativeName)[0];
+            const nativeNameValue = nativeNameKey[1].official
             const country = {
-                fullname: data[0].name.nativeName.eng.official,
+                fullname: nativeNameValue,
                 subregion: data[0].subregion,
                 languages: data[0].languages,
                 currencies: data[0].currencies,
