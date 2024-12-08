@@ -1,16 +1,29 @@
-const getCountryInfo = async (countryName) => {
-    const url = `https://restcountries.com/v3.1/name/${countryName}`;
-    const response = await fetch(url);
-    const data = await response.json();
+import { useEffect, useState } from "react";
 
-    const country = {
-        fullname: data[0].name.common,
-        flag: data[0].flags.png,
-        population: data[0].population,
-        region: data[0].region,
-        capital: data[0].capital[0],
-    };
+const getCountryInfo = (countryName) => {
+    const [country, setCountry] = useState({});
 
+    useEffect(() => {
+        async function fetchData() {
+            let newName = countryName.toLowerCase()
+            const url = `https://restcountries.com/v3.1/name/${newName}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            const country = {
+                fullname: data[0].name.nativeName.eng.official,
+                subregion: data[0].subregion,
+                languages: data[0].languages,
+                currencies: data[0].currencies,
+                borders: data[0].borders,
+            };
+
+            setCountry(country);
+
+        };
+        fetchData();
+    }, []);
+    
     return country;
 }
 
