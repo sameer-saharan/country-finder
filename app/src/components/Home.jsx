@@ -8,7 +8,7 @@ function Home() {
     <div className='w-full flex flex-wrap gap-10'>
         {
             countries.map((country) => (
-                <div key={country.fifa}>
+                <div key={country.name.common}>
                     <CountryCard country={country}/>
                 </div>
             ))

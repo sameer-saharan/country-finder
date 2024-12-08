@@ -6,13 +6,18 @@ function Header() {
         <div>
             <label htmlFor="sort">Sort by: </label>
             <select name="sort" id="sort" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold'>
-                <option value="">Helo</option>
+                <option value="aisa">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="america">America</option>
+                <option value="africa">Africa</option>
             </select>
         </div>
         <div>
             <label htmlFor="filter">Filter by: </label>
             <select name="filter" id="filter" className='bg-slate-300 rounded-lg px-2 py-1 font-semibold'>
-                <option value="">Helo</option>
+                <option value="ASC">Low Population</option>
+                <option value="DESC">High Population</option>
+                
             </select>
         </div>
         <div>
